@@ -29,6 +29,10 @@ connectToDb((err) => {
 
 // routes
 
+app.get('/', (req,res) => {
+  res.json('Connected to backend server successfully')
+})
+
 // Admin and Authentication
 
 // Adding an user
