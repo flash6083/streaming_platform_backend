@@ -21,6 +21,9 @@ connectToDb((err) => {
             console.log(`App listening on port ${PORT}`);
         })
     }
+    else{
+      console.log("Could not connect to database");
+    }
     db = getDb()
 })
 
