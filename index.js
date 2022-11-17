@@ -82,10 +82,9 @@ app.post('/users/reg', async (req,res) => {
 app.post('/users/login', async (req,res) => {
 
   try{
-
     const user = await db.collection('user').findOne({user: req.body.user})
-
-    if(!user) { res.status(500).json({err: 'Invalid User'})}
+  
+    if(user === null) { res.status(500).json({err: 'Invalid User'})}
     
     const isPasswordValid = await bycrypt.compare(req.body.password, user.password)
     
