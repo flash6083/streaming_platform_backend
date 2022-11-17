@@ -92,7 +92,7 @@ app.post('/users/login', async (req,res) => {
     if(isPasswordValid)
       res.status(200).json({msg: 'Correct Password', user: user.user})
     else
-      res.json({err: 'Incorrect Password'})
+      res.status(500).json({err: 'Incorrect Password'})
   }
   catch(err){
     res.status(500).json({err: 'Invalid login credentials!'})
