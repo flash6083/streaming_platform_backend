@@ -90,7 +90,7 @@ app.post('/users/login', async (req,res) => {
     const isPasswordValid = await bycrypt.compare(req.body.password, user.password)
     
     if(isPasswordValid)
-      res.status(200).json({msg: 'Correct Password', user})
+      res.status(200).json({msg: 'Correct Password', user: user.user})
     else
       res.json({err: 'Incorrect Password'})
   }
