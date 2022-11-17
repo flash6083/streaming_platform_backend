@@ -59,7 +59,7 @@ app.post('/users/reg', async (req,res) => {
       db.collection('user')
         .insertOne(currentUser)
         .then(result => {
-          res.status(201).json(result)
+          res.status(201).json({result, user})
         })
         .catch(() => {
           res.status(500).json({err: 'Could not add an user'})
@@ -90,7 +90,7 @@ app.post('/users/login', async (req,res) => {
     const isPasswordValid = await bycrypt.compare(req.body.password, user.password)
     
     if(isPasswordValid)
-      res.status(200).json({msg: 'Correct Password'})
+      res.status(200).json({msg: 'Correct Password', user})
     else
       res.json({err: 'Incorrect Password'})
   }
