@@ -30,7 +30,7 @@ connectToDb((err) => {
 // routes
 
 app.get('/', (req,res) => {
-  res.json('Connected to backend server successfully')
+  res.json('Connected to backend server successfully').json(PORT)
 })
 
 // Admin and Authentication
